@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ===== Reset & Base ===== */
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:#0f2027;color:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ===== HEADER ===== */
+header{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:1000;}
+nav{max-width:1200px;margin:auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+nav .logo{font-size:1.8rem;font-weight:700;color:#00E5FF;}
+nav ul{display:flex;gap:1.5rem;}
+nav ul li{list-style:none;}
+nav ul li a{font-weight:600;color:#fff;transition:0.3s;}
+nav ul li a:hover{color:#FFD740;}
+@media(max-width:768px){nav ul{display:none;}}
+
+.hero{
+  display:flex;align-items:center;gap:2rem;min-height:100vh;
+  padding:0 2rem;
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center/cover;
+  transition:1s ease;
+}
+.hero-photo{width:300px;border-radius:10px;border:3px solid #00E5FF;}
+.hero-content{flex:1;}
+.hero-content h1{font-size:3rem;color:#00E5FF;}
+.typing{font-size:1.8rem;color:#FFD740;min-height:2rem;margin:0.5rem 0;}
+.hero .btn{background:linear-gradient(90deg,#00E5FF,#7F00FF);padding:0.7rem 1.5rem;border-radius:50px;font-weight:600;color:#fff;transition:0.3s;margin-right:1rem;}
+.hero .btn:hover{transform:scale(1.05);box-shadow:0 0 15px #00E5FF;}
+@media(max-width:768px){.hero{flex-direction:column;text-align:center;}.hero-photo{width:200px;}}
+
+/* ===== SECTIONS ===== */
+section{
+  padding:5rem 2rem;
+  max-width:1200px;
+  margin:auto;
+}
+h2{text-align:center;font-size:2.8rem;color:#FFD740;margin-bottom:1.5rem;position:relative;}
+h2::after{content:'';width:80px;height:4px;background:linear-gradient(90deg,#00E5FF,#7F00FF);display:block;margin:1rem auto 0;border-radius:2px;}
+
+/* ===== ABOUT ===== */
+
+/* ===== ABOUT ATTRACTIVE DESIGN ===== */
+
+.about-wrapper{
+  display:flex;
+  align-items:center;
+  gap:3rem;
+  flex-wrap:wrap;
+}
+
+.about-image img{
+  width:260px;
+  border-radius:20px;
+  border:4px solid #00E5FF;
+  box-shadow:0 0 25px rgba(0,229,255,0.6);
+}
+
+.about-text{
+  flex:1;
+  color:#ddd;
+}
+
+.about-text h3{
+  font-size:1.8rem;
+  color:#00E5FF;
+  margin-bottom:1rem;
+}
+
+.about-text p{
+  line-height:1.7;
+  margin-bottom:1rem;
+}
+
+.about-highlights{
+  margin-top:1rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.about-highlights span{
+  background:rgba(255,255,255,0.08);
+  padding:8px 15px;
+  border-radius:50px;
+  font-size:0.9rem;
+  transition:0.3s;
+}
+
+.about-highlights span:hover{
+  background:#00E5FF;
+  color:#000;
+  transform:scale(1.05);
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .about-wrapper{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+/* ===== SKILLS ===== */
+.skills-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:1.5rem;
+  text-align:center;
+}
+
+.skill-item{
+  background:rgba(255,255,255,0.07);
+  padding:15px;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.skill-item img{
+  width:60px;
+  height:60px;
+  margin:auto;
+}
+
+.skill-item span{
+  display:block;
+  margin-top:10px;
+  font-size:0.9rem;
+  color:#fff;
+}
+
+.skill-item:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 20px #00E5FF;
+}
+
+
+
+/* ===== PROJECTS ===== */
+
+.projects-container{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  gap:1.2rem;
+}
+
+.project-card{
+  background:rgba(255,255,255,0.08);
+  border-radius:10px;
+  overflow:hidden;
+  height:260px;   /* SMALL BOX */
+  display:flex;
+  flex-direction:column;
+  transition:0.3s;
+}
+
+.project-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 15px #00E5FF;
+}
+
+.project-card img{
+  width:100%;
+  height:100px;   /* SMALL IMAGE */
+  object-fit:cover;
+}
+
+.project-card h3{
+  font-size:0.9rem;
+  margin:0.4rem;
+  color:#FFD740;
+}
+
+.project-card p{
+  font-size:0.75rem;
+  margin:0 0.4rem;
+  flex-grow:1;
+  color:#ccc;
+}
+
+.project-card a{
+  margin:0.5rem;
+  font-size:0.8rem;
+  color:#00E5FF;
+  font-weight:600;
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .projects-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width:600px){
+  .projects-container{
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== EXPERIENCE ===== */
+.timeline{display:flex;flex-direction:column;gap:1.5rem;}
+.timeline-item{background:rgba(255,255,255,0.05);padding:1rem 1.5rem;border-radius:10px;transition:0.3s;}
+.timeline-item:hover{transform:translateY(-5px);box-shadow:0 0 15px #00E5FF;}
+.timeline-item h4{color:#00E5FF;margin-bottom:0.3rem;}
+.timeline-item span{font-size:0.85rem;color:#ccc;}
+
+/* ===== GITHUB BUTTON ===== */
+
+.github-more{
+  text-align:center;
+  margin-top:2.5rem;
+}
+
+.github-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 28px;
+  border-radius:50px;
+  font-size:1rem;
+  font-weight:600;
+  color:#fff;
+  background:linear-gradient(90deg,#00E5FF,#7F00FF);
+  transition:0.3s;
+  box-shadow:0 0 15px rgba(0,229,255,0.5);
+}
+
+.github-btn i{
+  font-size:1.2rem;
+}
+
+.github-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 25px #00E5FF;
+}
+
+/* ===== CERTIFICATIONS ===== */
+.cert-slider{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
+}
+
+.cert-slider img{
+  width:100%;
+  border-radius:12px;
+  transition:0.3s;
+  box-shadow:0 5px 20px rgba(0,198,255,0.5);
+}
+
+.cert-slider img:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #00E5FF;
+}
+/* ===== ACHIEVEMENTS ===== */
+#achievements {
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.achievements-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.achievement-card {
+  background: #111;
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 300px;
+  transition: 0.4s;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #00adb5;
+}
+
+.achievement-card h3 {
+  color: #00adb5;
+  margin-bottom: 10px;
+}
+/* ===== CONTACT ===== */
+.contact-flex{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;text-align:center;}
+.contact-flex a{font-size:2rem;color:#00E5FF;transition:0.3s;}
+.contact-flex a:hover{color:#FFD740;transform:scale(1.2);}
+
+/* ===== FOOTER ===== */
+footer{margin-top:3rem;text-align:center;padding:1.8rem;background:rgba(0,0,0,0.8);color:#ccc;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">DataSciStudent</div>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<br>
+<br>
+<br>
+<section class="hero" id="hero">
+  <img class="hero-photo" src="full.jpg" alt="Data Scientist">
+  <div class="hero-content">
+    <h1>SANTHOSH S</h1>
+    <div class="typing" id="typing"></div>
+    <p>Future Data Scientist | ML Engineer | AI Developer</p>
+    <br>
+    <a href="#projects" class="btn">View Projects</a>
+    
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+<h2>About Me</h2>
+
+<div class="about-wrapper">
+
+  <div class="about-image">
+   <img src="abo.jpg" alt="Profile">
+  </div>
+
+  <div class="about-text">
+
+    <h3>Hello, I'm Santhosh 👋</h3>
+
+    <p>
+      I am a <strong>Data Science student</strong> and a 
+      <strong>B.Sc Computer Science graduate</strong> passionate about 
+      Machine Learning, Artificial Intelligence, and Cybersecurity.
+    </p>
+
+    <p>
+      I enjoy transforming complex data into meaningful insights and building 
+      intelligent applications using Python, modern AI technologies, and 
+      analytical methods. I also explore cybersecurity and ethical hacking 
+      concepts to understand system security and threat detection.
+    </p>
+
+    <p>
+      My goal is to develop innovative, data-driven, and secure solutions 
+      that solve real-world problems while continuously learning emerging technologies.
+    </p>
+
+    <div class="about-highlights">
+      <span>📊 Data Science</span>
+      <span>🤖 Machine Learning</span>
+      <span>🔐 Cybersecurity</span>
+      <span>💻 Software Development</span>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+<!-- ===== SKILLS ===== -->
+
+<section id="skills">
+<h2>Skills</h2>
+
+<div class="skills-container">
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/c-1.svg">
+<span>C</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/c.svg">
+<span>C++</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/java-4.svg">
+<span>Java</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/python-5.svg">
+<span>Python</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/r-lang.svg">
+<span>R</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/html-1.svg">
+<span>HTML</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/css-3.svg">
+<span>CSS</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/javascript-1.svg">
+<span>JavaScript</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
+<span>PHP</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+<span>MySQL</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/git-icon.svg">
+<span>GitHub</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/linux-tux.svg">
+<span>Linux</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/react-2.svg">
+<span>Web Development</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg">
+<span>Machine Learning</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg">
+<span>OpenCV</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg">
+<span>Tableau</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.worldvectorlogo.com/logos/bash-1.svg">
+<span>Bash</span>
+</div>
+
+<!-- Cybersecurity -->
+
+<div class="skill-item">
+<img src="https://cdn.simpleicons.org/wireshark">
+<span>Wireshark</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn-icons-png.flaticon.com/512/4248/4248449.png">
+<span>Nmap</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.simpleicons.org/metasploit">
+<span>Metasploit</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn.simpleicons.org/kalilinux">
+<span>Hydra</span>
+</div>
+
+<div class="skill-item">
+<img src="https://cdn-icons-png.flaticon.com/512/4248/4248455.png">
+<span>John the Ripper</span>
+</div>
+</div>
+</section>
+<!-- ===== PROJECTS ===== -->
+
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="projects-container">
+
+  <div class="project-card">
+    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=600&fit=crop" alt="AI Project">
+    <h3>AI Fitness Tracker</h3>
+    <p>AI system that tracks workouts and predicts weight loss.</p>
+    
+  </div>
+
+  <div class="project-card">
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=600&fit=crop" alt="Cyber Security">
+    <h3>Vulnerability Scanner</h3>
+    <p>Python tool for authorized security testing.</p>
+    
+  </div>
+
+  
+
+  <div class="project-card">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=600&fit=crop" alt="Web Development">
+    <h3>Online Movie Booking</h3>
+    <p>Full-stack ticket booking web application.</p>
+    
+  </div>
+
+  <div class="project-card">
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop" alt="Data Analytics">
+    <h3>Sales Dashboard</h3>
+    <p>Interactive business intelligence dashboard.</p>
+    
+  </div>
+
+  <div class="project-card">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=600&fit=crop" alt="AI Platform">
+    <h3>AI Assessment Platform</h3>
+    <p>AI-powered student digital assessment system.</p>
+    
+  </div>
+
+</div>
+</div>
+
+<div class="github-more">
+<a href="https://github.com/Santhoshsubramani22" 
+   target="_blank" 
+   class="github-btn">
+   <i class="fab fa-github"></i> View My GitHub
+</a>
+   
+</div>
+
+</section>
+</section>
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience">
+<h2>Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h4>Computer Science Intern | TechSaksham</h4>
+<span>Dec 2024 – Feb 2025</span>
+<p>
+Developed an AI-based real-time fitness tracking system using machine learning
+techniques. Performed data analysis, model evaluation, and generated analytical
+reports to monitor performance and user activity.
+</p>
+</div>
+
+<div class="timeline-item">
+<h4>Research Assistant | Journal Publication</h4>
+<span>Feb 2026 – Mar 2026</span>
+<p>
+Contributed to research on <strong>Fixed-Time Synchronization of Stochastic Fuzzy
+Cellular Neural Networks with Time-Varying Delay using a
+Lyapunov–Krasovskii Approach</strong>. Assisted in mathematical modeling,
+analysis, and documentation for academic publication.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section id="certifications">
+<h2>Certifications</h2>
+<div class="cert-slider">
+<img src="1.jpg" alt="IBM Data Science">
+<img src="2.jpg" alt="IBM Data Science">
+<img src="3.jpg" alt="IBM Data Science">
+<img src="4.jpg" alt="IBM Data Science">
+<img src="5.jpg" alt="IBM Data Science">
+<img src="6.jpg" alt="IBM Data Science">
+<img src="7.jpg" alt="IBM Data Science">
+<img src="8.jpg" alt="IBM Data Science">
+<img src="9.jpg" alt="IBM Data Science">
+<img src="10.jpg" alt="IBM Data Science">
+<img src="11.png" alt="IBM Data Science">
+<img src="12.png" alt="IBM Data Science">
+</div>
+</section>
+
+<!-- ===== ACHIEVEMENTS ===== -->
+<section id="achievements">
+<h2>Achievements</h2>
+
+<div class="achievements-container">
+
+<div class="achievement-card">
+<h3>Real-Time Problem Solving</h3>
+<p>
+Successfully completed multiple academic assignments focused on solving
+real-time problems, demonstrating analytical thinking, accuracy,
+and strong typing and documentation skills.
+</p>
+</div>
+
+<div class="achievement-card">
+<h3>Cybersecurity Project Experience</h3>
+<p>
+Gained hands-on experience working with cybersecurity tools and
+practical projects involving network analysis, vulnerability scanning,
+and ethical hacking concepts.
+</p>
+</div>
+
+<div class="achievement-card">
+<h3>Data Science Project Development</h3>
+<p>
+Developed data science and machine learning projects involving
+data preprocessing, visualization, model building, and predictive analysis
+using modern data science technologies.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+
+<section id="contact">
+<h2>Contact Me</h2>
+
+<div class="contact-flex">
+
+<a href="mailto:santhoshking529@email.com" class="contact-icon">
+<i class="fas fa-envelope"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/santhosh-s-3a83a5368?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="contact-icon">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://www.youtube.com/@santhoshslearning" target="_blank" class="contact-icon">
+<i class="fab fa-youtube"></i>
+</a>
+
+<a href="https://www.instagram.com/something_santhosh22" target="_blank" class="contact-icon">
+<i class="fab fa-instagram"></i>
+</a>
+
+</div>
+</section>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+<p>© 2026 Santhosh s | All Rights Reserved</p>
+</footer>
+
+<script>
+// ===== Typing Effect =====
+const typedText=[
+"Data Scientist",
+"Machine Learning Engineer",
+"AI Developer",
+"Cybersecurity Enthusiast",
+"Big Data Analyst"
+];
+//const typedText=["Data Scientist","ML Engineer","AI Developer","Big Data Analyst"];
+let i=0,j=0,current="",isDeleting=false;
+const typeEl=document.getElementById("typing");
+function type(){
+  if(i>=typedText.length)i=0;
+  let full=typedText[i];
+  current=isDeleting?full.substring(0,--j):full.substring(0,++j);
+  typeEl.textContent=current;
+  if(!isDeleting && j===full.length+1){isDeleting=true;setTimeout(type,1000);}
+  else if(isDeleting && j===0){isDeleting=false;i++;setTimeout(type,500);}
+  else setTimeout(type,isDeleting?50:100);
+}
+type();
+
+// ===== Scroll Animation =====
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    const rect=sec.getBoundingClientRect();
+    if(rect.top<window.innerHeight-100){sec.classList.add("show");}
+  });
+});
+</script>
+</body>
+</html>
